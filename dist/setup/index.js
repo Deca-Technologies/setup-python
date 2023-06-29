@@ -69592,7 +69592,7 @@ const TOKEN = core.getInput('token');
 const AUTH = !TOKEN ? undefined : `token ${TOKEN}`;
 const MANIFEST_REPO_OWNER = 'actions';
 const MANIFEST_REPO_NAME = 'python-versions';
-const MANIFEST_REPO_BRANCH = 'main';
+const MANIFEST_REPO_BRANCH = '225ba42747d0f5e3dbd90ba15b9c7409a4b8c735';
 exports.MANIFEST_URL = `https://raw.githubusercontent.com/${MANIFEST_REPO_OWNER}/${MANIFEST_REPO_NAME}/${MANIFEST_REPO_BRANCH}/versions-manifest.json`;
 function findReleaseFromManifest(semanticVersionSpec, architecture, manifest) {
     return __awaiter(this, void 0, void 0, function* () {
