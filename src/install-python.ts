@@ -2,14 +2,14 @@ import * as path from 'path';
 import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
 import * as exec from '@actions/exec';
-import {ExecOptions} from '@actions/exec/lib/interfaces';
-import {IS_WINDOWS, IS_LINUX} from './utils';
+import { ExecOptions } from '@actions/exec/lib/interfaces';
+import { IS_WINDOWS, IS_LINUX } from './utils';
 
 const TOKEN = core.getInput('token');
 const AUTH = !TOKEN ? undefined : `token ${TOKEN}`;
 const MANIFEST_REPO_OWNER = 'actions';
 const MANIFEST_REPO_NAME = 'python-versions';
-const MANIFEST_REPO_BRANCH = 'main';
+const MANIFEST_REPO_BRANCH = '225ba42747d0f5e3dbd90ba15b9c7409a4b8c735';
 export const MANIFEST_URL = `https://raw.githubusercontent.com/${MANIFEST_REPO_OWNER}/${MANIFEST_REPO_NAME}/${MANIFEST_REPO_BRANCH}/versions-manifest.json`;
 
 export async function findReleaseFromManifest(
@@ -48,7 +48,7 @@ async function installPython(workingDirectory: string) {
     cwd: workingDirectory,
     env: {
       ...process.env,
-      ...(IS_LINUX && {LD_LIBRARY_PATH: path.join(workingDirectory, 'lib')})
+      ...(IS_LINUX && { LD_LIBRARY_PATH: path.join(workingDirectory, 'lib') })
     },
     silent: true,
     listeners: {
